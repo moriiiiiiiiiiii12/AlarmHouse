@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 1564906645}
   - component: {fileID: 1564906644}
   - component: {fileID: 1564906650}
+  - component: {fileID: 1564906651}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -788,6 +789,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedRotation: 150
+--- !u!114 &1564906651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564906643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50b0f542dcee6dab9edfce1f22ffcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2008475577
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +816,7 @@ GameObject:
   - component: {fileID: 2008475580}
   - component: {fileID: 2008475579}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Alarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -818,11 +831,11 @@ Transform:
   m_GameObject: {fileID: 2008475577}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5914, y: 4.38, z: 1.13}
+  m_LocalPosition: {x: -0.85313964, y: 2.0227568, z: 0.45392692}
   m_LocalScale: {x: 9.187043, y: 4.275337, z: 11.360233}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2068236422}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2008475579
 AudioSource:
@@ -1144,7 +1157,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 981015339}
-  - {fileID: 2008475578}
   - {fileID: 1174192178}
   - {fileID: 2026386458}
   m_Father: {fileID: 0}
@@ -1157,3 +1169,4 @@ SceneRoots:
   - {fileID: 185928083}
   - {fileID: 1564906649}
   - {fileID: 2068236422}
+  - {fileID: 2008475578}
