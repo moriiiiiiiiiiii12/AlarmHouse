@@ -16,29 +16,29 @@ public class Alarm : MonoBehaviour
     private void Awake()
     {
         _audioSource.clip = _audioClip;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out Scammer scammer) == false) return;
-
         _audioSource.volume = _minVolume;
-
-        if (_volumeRoutine != null)
-            StopCoroutine(_volumeRoutine);
-
-        _audioSource.Play();
-        _volumeRoutine = StartCoroutine(FadeVolume(_maxVolume));
+        _currentVolume = _minVolume;
     }
 
-    private void OnTriggerExit(Collider other)
+    public void VolumeUp()
     {
-        if (other.TryGetComponent(out Scammer scammer) == false) return;
+        VolumeChange(_maxVolume);
+    }
 
+    public void VolumeDown()
+    {
+        VolumeChange(_minVolume);
+    }
+
+    public void VolumeChange(float targetVolume)
+    {
         if (_volumeRoutine != null)
             StopCoroutine(_volumeRoutine);
+        
+        if(_audioSource.isPlaying == false)
+            _audioSource.Play();
 
-        _volumeRoutine = StartCoroutine(FadeOutAndStop());
+        _volumeRoutine = StartCoroutine(FadeVolume(targetVolume));
     }
 
     private IEnumerator FadeVolume(float targetVolume)
@@ -53,11 +53,10 @@ public class Alarm : MonoBehaviour
 
         _currentVolume = targetVolume;
         _audioSource.volume = _currentVolume;
-    }
-    
-    private IEnumerator FadeOutAndStop()
-    {
-        yield return FadeVolume(_minVolume);    
-        _audioSource.Stop();                    
+
+        if (Mathf.Abs(_currentVolume - _minVolume) > 0.01f)
+        {
+            _audioSource.Stop();
+        }
     }
 }
