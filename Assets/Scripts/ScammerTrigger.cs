@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScammerTrigger : MonoBehaviour
@@ -9,12 +7,12 @@ public class ScammerTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Scammer scammer) == true)
-            _alarm.VolumeUp();
+            _alarm.IncreaseVolume();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent(out Scammer scammer) == true)
-            _alarm.VolumeDown();
+            _alarm.DecreaseVolume();
     }
 }

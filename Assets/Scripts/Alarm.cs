@@ -20,12 +20,12 @@ public class Alarm : MonoBehaviour
         _currentVolume = _minVolume;
     }
 
-    public void VolumeUp()
+    public void IncreaseVolume()
     {
         VolumeChange(_maxVolume);
     }
 
-    public void VolumeDown()
+    public void DecreaseVolume()
     {
         VolumeChange(_minVolume);
     }
